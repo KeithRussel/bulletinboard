@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import styled from "@emotion/styled";
+import React from "react";
 import { Link } from "react-router-dom";
 import Articles from "../Components/Articles/Articles";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
+
+const AddArticleRoute = styled.span`
+  position: fixed;
+  left: auto;
+  right: 0px;
+  bottom: 0;
+`;
 
 const HomeScreen = () => {
   const [articleList, setArticleList] = useLocalStorage("articles", []);
@@ -19,7 +27,9 @@ const HomeScreen = () => {
   return (
     <div>
       <Articles articles={articleList} />
-      <Link to="addarticle">Add Article</Link>
+      <AddArticleRoute>
+        <Link to="addarticle">Add Article</Link>
+      </AddArticleRoute>
     </div>
   );
 };
