@@ -1,7 +1,13 @@
+import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddArticleForm from "../Components/Forms/AddArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
+
+const AddArticleScreenMain = styled.div`
+  max-width: 50%;
+  margin: auto;
+`;
 
 const AddArticleScreen = () => {
   const [title, setTitle] = useState("");
@@ -27,7 +33,7 @@ const AddArticleScreen = () => {
   };
 
   return (
-    <div>
+    <AddArticleScreenMain>
       <Link to="/">Back</Link>
       <AddArticleForm
         title={title}
@@ -36,7 +42,7 @@ const AddArticleScreen = () => {
         setContent={setContent}
         handleSubmit={handleSubmit}
       />
-    </div>
+    </AddArticleScreenMain>
   );
 };
 

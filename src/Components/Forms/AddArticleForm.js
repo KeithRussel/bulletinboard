@@ -1,4 +1,35 @@
+import styled from "@emotion/styled";
 import React from "react";
+import { theme } from "../../utils/styles";
+
+const Input = styled.input`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const Button = styled.input`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: ${() => theme.colors.secondary};
+  color: ${() => theme.colors.white};
+`;
 
 const AddArticleForm = ({
   title,
@@ -9,7 +40,7 @@ const AddArticleForm = ({
 }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <Input
         type="text"
         placeholder="Input Title"
         name="title"
@@ -17,7 +48,7 @@ const AddArticleForm = ({
         onChange={(e) => setTitle(e.target.value)}
         required
       />
-      <input
+      <TextArea
         type="text"
         placeholder="Input Content"
         name="content"
@@ -25,7 +56,7 @@ const AddArticleForm = ({
         onChange={(e) => setContent(e.target.value)}
         required
       />
-      <input type="submit" value="Add Article" />
+      <Button type="submit" value="Add Article" />
     </form>
   );
 };
