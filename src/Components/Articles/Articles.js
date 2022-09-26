@@ -9,10 +9,18 @@ const MainArticles = styled.div`
 `;
 
 const Articles = ({ articles }) => {
+  const deleteHandler = (id) => {
+    const datas = JSON.parse(localStorage.getItem("articles"));
+    let index = datas.indexOf(id);
+    datas.splice(index, 1);
+    console.log(datas);
+    localStorage.setItem("articles", JSON.stringify(datas));
+  };
+
   return (
     <MainArticles>
       {articles.map((article, index) => (
-        <Article key={index} article={article} />
+        <Article key={index} article={article} deleteHandler={deleteHandler} />
       ))}
     </MainArticles>
   );

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddArticleForm from "../Components/Forms/AddArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
+import { generateId } from "../utils/generateId";
 
 const AddArticleScreenMain = styled.div`
   max-width: 50%;
@@ -19,6 +20,7 @@ const AddArticleScreen = () => {
     setArticleList([
       ...articleList,
       {
+        id: generateId(),
         title: title,
         content: content,
       },
@@ -30,6 +32,7 @@ const AddArticleScreen = () => {
     addArticle(title, content);
     setTitle("");
     setContent("");
+    console.log(articleList);
   };
 
   return (

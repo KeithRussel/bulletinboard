@@ -10,11 +10,11 @@ const setStorageValue = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 // Remove Storage Value
-const removeStorageValue = (key) => {
+export const removeStorageValue = (key) => {
   localStorage.removeItem(key);
 };
 // Clear Storage Value
-const clearStorageValue = () => {
+export const clearStorageValue = () => {
   localStorage.clear();
 };
 // Use Local Storage
