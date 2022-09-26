@@ -3,12 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Articles from "../Components/Articles/Articles";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
+import { MdOutlineAddCircle } from "react-icons/md";
 
 const AddArticleRoute = styled.span`
   position: fixed;
   left: auto;
-  right: 0px;
-  bottom: 0;
+  right: 25px;
+  bottom: 25px;
 `;
 
 const HomeScreen = () => {
@@ -28,7 +29,9 @@ const HomeScreen = () => {
     <div>
       <Articles articles={articleList} />
       <AddArticleRoute>
-        <Link to="addarticle">Add Article</Link>
+        <Link to="addarticle">
+          <MdOutlineAddCircle size={50} color={"#29203D"} />
+        </Link>
       </AddArticleRoute>
     </div>
   );
