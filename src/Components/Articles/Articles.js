@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Article from "./Article";
 import styled from "@emotion/styled";
 
@@ -16,6 +16,10 @@ const Articles = ({ articles }) => {
     console.log(datas);
     localStorage.setItem("articles", JSON.stringify(datas));
   };
+
+  useEffect(() => {
+    localStorage.getItem("articles");
+  }, []);
 
   return (
     <MainArticles>
