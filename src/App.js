@@ -8,6 +8,7 @@ import AddArticleScreen from "./Screens/AddArticleScreen";
 const Container = styled.div`
   max-width: 70%;
   margin: auto;
+  padding: 15px 0;
 `;
 
 function App() {
