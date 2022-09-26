@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Articles from "../Components/Articles/Articles";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
 
@@ -17,6 +18,7 @@ const HomeScreen = () => {
   return (
     <div>
       <Articles articles={testData} />
+      <Link to="addarticle">Add Article</Link>
     </div>
   );
 };
