@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import React from "react";
+import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import Articles from "../Components/Articles/Articles";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
@@ -24,10 +24,16 @@ const HomeScreen = () => {
   //     content: "Sample Content 2",
   //   },
   // ]);
+  const deleteHandler = (id) => {
+    const newData = articleList.filter((item) => item.id !== id);
+
+    setArticleList(newData);
+    console.log(newData);
+  };
 
   return (
     <div>
-      <Articles articles={articleList} />
+      <Articles articles={articleList} deleteHandler={deleteHandler} />
       <AddArticleRoute>
         <Link to="addarticle">
           <MdOutlineAddCircle size={50} color={"#29203D"} />

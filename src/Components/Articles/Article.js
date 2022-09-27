@@ -2,10 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import { theme } from "../../utils/styles";
 import { FaTrash, FaEdit } from "react-icons/fa";
-import {
-  clearStorageValue,
-  removeStorageValue,
-} from "../LocalStorage/localStorage";
 
 const Card = styled.div`
   background-color: ${() => theme.colors.primary};
@@ -23,7 +19,7 @@ const Article = ({ article, deleteHandler }) => {
       <p>{article.content}</p>
       <div>
         <FaEdit size={20} />
-        <FaTrash size={20} onClick={deleteHandler} />
+        <FaTrash size={20} onClick={() => deleteHandler(article.id)} />
       </div>
     </Card>
   );

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AddArticleForm from "../Components/Forms/AddArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
 import { generateId } from "../utils/generateId";
+import uuid from "react-uuid";
 
 const AddArticleScreenMain = styled.div`
   max-width: 50%;
@@ -20,7 +21,7 @@ const AddArticleScreen = () => {
     setArticleList([
       ...articleList,
       {
-        id: generateId(),
+        id: uuid(),
         title: title,
         content: content,
       },
