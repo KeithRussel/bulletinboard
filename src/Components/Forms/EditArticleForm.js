@@ -41,7 +41,7 @@ const EditArticleForm = ({
   handleUpdate,
 }) => {
   return (
-    <form>
+    <form onSubmit={handleUpdate}>
       <Input
         type="text"
         placeholder="Input Title"
@@ -58,7 +58,7 @@ const EditArticleForm = ({
         onChange={contentOnChangeHandler}
         required
       />
-      <Button type="submit" value="Update Article" onClick={handleUpdate} />
+      <Button type="submit" value="Update Article" />
     </form>
   );
 };
