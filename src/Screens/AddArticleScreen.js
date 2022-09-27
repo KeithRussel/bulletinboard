@@ -21,7 +21,7 @@ const AddArticleScreen = () => {
     setArticleList([
       ...articleList,
       {
-        id: uuid(),
+        id: uuid().slice(0, 6),
         title: title,
         content: content,
       },

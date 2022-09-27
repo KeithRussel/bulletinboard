@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { theme } from "../../utils/styles";
 import { FaTrash, FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Card = styled.div`
   background-color: ${() => theme.colors.primary};
@@ -18,7 +19,9 @@ const Article = ({ article, deleteHandler }) => {
       <h2>{article.title}</h2>
       <p>{article.content}</p>
       <div>
-        <FaEdit size={20} />
+        <Link to={`/editarticle/${article.id}`}>
+          <FaEdit size={20} />
+        </Link>
         <FaTrash size={20} onClick={() => deleteHandler(article.id)} />
       </div>
     </Card>
