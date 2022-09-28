@@ -22,13 +22,19 @@ const GroupButton = styled.div`
   gap: 1rem;
 `;
 
+const Title = styled.h2`
+  @media (max-width: 600px) {
+    margin: 0;
+  }
+`;
+
 const Article = ({ article, deleteHandler }) => {
   return (
     <Card>
       {/* {Object.values(article).map((value, index) => (
         <p key={index}>{value}</p>
       ))} */}
-      <h2>{article.title}</h2>
+      <Title>{article.title}</Title>
       <Paragraph>{article.content}</Paragraph>
       <GroupButton>
         <Link to={`/editarticle/${article.id}`}>

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled/macro";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
@@ -7,6 +7,10 @@ import AddArticleScreen from "./Screens/AddArticleScreen";
 import EditArticleScreen from "./Screens/EditArticleScreen";
 
 const Container = styled.div`
+  @media (max-width: 600px) {
+    max-width: 90%;
+  }
+
   max-width: 70%;
   margin: auto;
   padding: 15px 0;
