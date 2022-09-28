@@ -24,11 +24,13 @@ const HomeScreen = () => {
   //     content: "Sample Content 2",
   //   },
   // ]);
-  const deleteHandler = (id) => {
-    const newData = articleList.filter((item) => item.id !== id);
+  const deleteHandler = (id, title) => {
+    if (window.confirm(`Are you sure you wish to delete ${title}?`)) {
+      const newData = articleList.filter((item) => item.id !== id);
 
-    setArticleList(newData);
-    console.log(newData);
+      setArticleList(newData);
+      console.log(newData);
+    }
   };
 
   return (

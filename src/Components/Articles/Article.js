@@ -41,7 +41,7 @@ const Article = ({ article, deleteHandler }) => {
         <FaTrash
           filter="drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))"
           size={20}
-          onClick={() => deleteHandler(article.id)}
+          onClick={() => deleteHandler(article.id, article.title)}
           color="#ED2125"
         />
       </GroupButton>
