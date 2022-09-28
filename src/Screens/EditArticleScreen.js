@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import EditArticleForm from "../Components/Forms/EditArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const EditArticleScreenMain = styled.div`
   max-width: 50%;
@@ -12,32 +12,33 @@ const EditArticleScreenMain = styled.div`
 const EditArticleScreen = () => {
   const [articleList, setArticleList] = useLocalStorage("articles", []);
   const params = useParams();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
-  // const editArticle = (id, title, content) => {
-  //   setArticleList([
-  //     ...articleList,
-  //     {
-  //       id: id,
-  //       title: title,
-  //       content: content,
-  //     },
-  //   ]);
-  // };
+  const found = articleList.find((obj) => obj.id === params.articleId);
+  const [title, setTitle] = useState(found.title);
+  const [content, setContent] = useState(found.content);
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
-    const newState = articleList.map((obj) => {
-      if (obj.id === params.articleId) {
-        return { ...obj, title: title, content: content };
-      }
 
-      return obj;
-    });
+    try {
+      const newState = articleList.map((obj) => {
+        if (obj.id === params.articleId) {
+          return { ...obj, title: title, content: content };
+        }
 
-    setArticleList(newState);
-    console.log(articleList);
+        return obj;
+      });
+
+      await setArticleList(newState);
+      console.log(newState);
+      setTitle("");
+      setContent("");
+      // setTimeout(navigate("/"), 5000);
+      navigate("/");
+    } catch (error) {
+      throw new Error("Error 404 not found");
+    }
   };
 
   const titleOnChangeHandler = (e) => {
@@ -47,12 +48,6 @@ const EditArticleScreen = () => {
   const contentOnChangeHandler = (e) => {
     setContent(e.target.value);
   };
-
-  // useEffect(() => {
-  //   const items = localStorage.getItem("articles");
-  //   console.log(articleList);
-  //   // console.log(content);
-  // }, []);
 
   return (
     <EditArticleScreenMain>
