@@ -7,6 +7,10 @@ import { generateId } from "../utils/generateId";
 import uuid from "react-uuid";
 
 const AddArticleScreenMain = styled.div`
+  @media (max-width: 600px) {
+    max-width: 90%;
+  }
+
   max-width: 50%;
   margin: auto;
 `;

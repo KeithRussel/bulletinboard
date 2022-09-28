@@ -5,6 +5,10 @@ import { useLocalStorage } from "../Components/LocalStorage/localStorage";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 const EditArticleScreenMain = styled.div`
+  @media (max-width: 600px) {
+    max-width: 90%;
+  }
+
   max-width: 50%;
   margin: auto;
 `;
