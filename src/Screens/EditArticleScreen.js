@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React, { useState } from "react";
 import EditArticleForm from "../Components/Forms/EditArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const EditArticleScreenMain = styled.div`
   max-width: 50%;
@@ -51,6 +51,7 @@ const EditArticleScreen = () => {
 
   return (
     <EditArticleScreenMain>
+      <Link to="/">Back</Link>
       <EditArticleForm
         title={title}
         content={content}
