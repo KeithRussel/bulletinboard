@@ -3,6 +3,8 @@ export const theme = {
     primary: "#18ED8A",
     secondary: "#29203D",
     white: "#fff",
+    red: "#ED2125",
+    blue: "#095BE0",
   },
   fonts: {
     primary: "Roboto",

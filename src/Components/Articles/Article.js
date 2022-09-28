@@ -32,9 +32,18 @@ const Article = ({ article, deleteHandler }) => {
       <Paragraph>{article.content}</Paragraph>
       <GroupButton>
         <Link to={`/editarticle/${article.id}`}>
-          <FaEdit size={20} />
+          <FaEdit
+            size={20}
+            color="#095BE0"
+            filter="drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))"
+          />
         </Link>
-        <FaTrash size={20} onClick={() => deleteHandler(article.id)} />
+        <FaTrash
+          filter="drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))"
+          size={20}
+          onClick={() => deleteHandler(article.id)}
+          color="#ED2125"
+        />
       </GroupButton>
     </Card>
   );
