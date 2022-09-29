@@ -5,6 +5,9 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Card = styled.div`
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+  }
   background-color: ${() => theme.colors.primary};
   padding: 1rem;
   box-shadow: 0px 2px 4px black;
@@ -28,6 +31,18 @@ const Title = styled.h2`
   }
 `;
 
+const CardBottom = styled.div`
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #fffefe;
+  padding: 1rem;
+  background-color: #00000017;
+`;
+
 const Article = ({ article, deleteHandler }) => {
   return (
     <Card>
@@ -36,22 +51,24 @@ const Article = ({ article, deleteHandler }) => {
       ))} */}
       <Title>{article.title}</Title>
       <Paragraph>{article.content}</Paragraph>
-      <GroupButton>
+      <CardBottom>
         <span>{article.date}</span>
-        <Link to={`/editarticle/${article.id}`}>
-          <FaEdit
-            size={20}
-            color="#095BE0"
+        <GroupButton>
+          <Link to={`/editarticle/${article.id}`}>
+            <FaEdit
+              size={20}
+              color="#095BE0"
+              filter="drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))"
+            />
+          </Link>
+          <FaTrash
             filter="drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))"
+            size={20}
+            onClick={() => deleteHandler(article.id, article.title)}
+            color="#ED2125"
           />
-        </Link>
-        <FaTrash
-          filter="drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))"
-          size={20}
-          onClick={() => deleteHandler(article.id, article.title)}
-          color="#ED2125"
-        />
-      </GroupButton>
+        </GroupButton>
+      </CardBottom>
     </Card>
   );
 };
