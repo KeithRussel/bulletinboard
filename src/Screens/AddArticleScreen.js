@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddArticleForm from "../Components/Forms/AddArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
-import { generateId } from "../utils/generateId";
 import uuid from "react-uuid";
+import { currentDate } from "../utils/currentDate";
 
 const AddArticleScreenMain = styled.div`
   @media (max-width: 600px) {
@@ -28,6 +28,7 @@ const AddArticleScreen = () => {
         id: uuid().slice(0, 6),
         title: title,
         content: content,
+        date: currentDate(),
       },
     ]);
   };

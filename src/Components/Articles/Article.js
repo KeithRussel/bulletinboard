@@ -37,6 +37,7 @@ const Article = ({ article, deleteHandler }) => {
       <Title>{article.title}</Title>
       <Paragraph>{article.content}</Paragraph>
       <GroupButton>
+        <span>{article.date}</span>
         <Link to={`/editarticle/${article.id}`}>
           <FaEdit
             size={20}
