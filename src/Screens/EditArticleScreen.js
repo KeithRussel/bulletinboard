@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import EditArticleForm from "../Components/Forms/EditArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { currentDate } from "../utils/currentDate";
 
 const EditArticleScreenMain = styled.div`
   @media (max-width: 600px) {
@@ -28,7 +29,12 @@ const EditArticleScreen = () => {
     try {
       const newState = articleList.map((obj) => {
         if (obj.id === params.articleId) {
-          return { ...obj, title: title, content: content };
+          return {
+            ...obj,
+            title: title,
+            content: content,
+            date: currentDate(),
+          };
         }
 
         return obj;
