@@ -13,6 +13,10 @@ const MainArticles = styled.div`
 `;
 
 const Articles = ({ articles, deleteHandler }) => {
+  if (articles.length === 0) {
+    return <h2>Please add an Article</h2>;
+  }
+  console.log(articles);
   return (
     <MainArticles>
       {articles.map((article, index) => (
