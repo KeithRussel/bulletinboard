@@ -88,6 +88,12 @@ const AddArticleForm = ({
         required
       />
       <Select name="colors" value={color} onChange={handleSelectChange}>
+        {/* {colors
+          ? colors.map((color) => (
+              <p>test</p>
+              <option value={color.value}>{color.name}</option>
+            ))
+          : null} */}
         <option value="rgb(237, 234, 24)">Yellow</option>
         <option value="rgb(24, 167, 237)">Blue</option>
         <option value="rgb(139, 86, 255)">Violet</option>
