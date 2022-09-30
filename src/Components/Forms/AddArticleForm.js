@@ -87,7 +87,7 @@ const AddArticleForm = ({
         onChange={(e) => setContent(e.target.value)}
         required
       />
-      <Select name="colors" value={color} onChange={handleSelectChange}>
+      <Select name="colors" defaultValue={color} onChange={handleSelectChange}>
         {/* {colors
           ? colors.map((color) => (
               <p>test</p>
