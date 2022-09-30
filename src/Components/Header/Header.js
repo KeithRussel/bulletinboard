@@ -9,6 +9,8 @@ const HeaderMain = styled.div`
   color: ${() => theme.colors.white};
   height: 70px;
   background-color: ${() => theme.colors.secondary};
+  font-size: 1.5rem;
+  font-weight: bold;
 `;
 
 const Header = () => {
