@@ -18,7 +18,7 @@ const AddArticleScreenMain = styled.div`
 const AddArticleScreen = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [color, setColor] = useState("yellow");
+  const [color, setColor] = useState("rgb(237, 234, 24)");
 
   const [articleList, setArticleList] = useLocalStorage("articles", []);
 
