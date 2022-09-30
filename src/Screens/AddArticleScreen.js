@@ -18,16 +18,22 @@ const AddArticleScreenMain = styled.div`
 const AddArticleScreen = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [color, setColor] = useState("yellow");
 
   const [articleList, setArticleList] = useLocalStorage("articles", []);
 
-  const addArticle = (title, content) => {
+  const handleSelectChange = (e) => {
+    setColor(e.target.value);
+  };
+
+  const addArticle = (title, content, color) => {
     setArticleList([
       ...articleList,
       {
         id: uuid().slice(0, 6),
         title: title,
         content: content,
+        color: color,
         date: currentDate(),
       },
     ]);
@@ -35,9 +41,10 @@ const AddArticleScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addArticle(title, content);
+    addArticle(title, content, color);
     setTitle("");
     setContent("");
+    // setColor();
     console.log(articleList);
   };
 
@@ -49,6 +56,9 @@ const AddArticleScreen = () => {
         setTitle={setTitle}
         content={content}
         setContent={setContent}
+        color={color}
+        setColor={setColor}
+        handleSelectChange={handleSelectChange}
         handleSubmit={handleSubmit}
       />
     </AddArticleScreenMain>

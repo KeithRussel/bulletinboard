@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useState } from "react";
 import { theme } from "../../utils/styles";
 
 const Input = styled.input`
@@ -20,6 +20,15 @@ const TextArea = styled.textarea`
   border-radius: 4px;
 `;
 
+const Select = styled.select`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
 const Button = styled.input`
   width: 100%;
   padding: 12px 20px;
@@ -31,11 +40,33 @@ const Button = styled.input`
   color: ${() => theme.colors.white};
 `;
 
+// const [options, setOptions] = useState([
+//   {
+//     name: "Yellow",
+//     value: "rgb(237, 234, 24)",
+//   },
+//   {
+//     name: "Blue",
+//     value: "rgb(24, 167, 237)",
+//   },
+//   {
+//     name: "Violet",
+//     value: "rgb(139, 86, 255)",
+//   },
+//   {
+//     name: "Green",
+//     value: "rgb(24, 237, 67)",
+//   },
+// ]);
+
 const AddArticleForm = ({
   title,
   setTitle,
   content,
   setContent,
+  color,
+  setColor,
+  handleSelectChange,
   handleSubmit,
 }) => {
   return (
@@ -56,6 +87,12 @@ const AddArticleForm = ({
         onChange={(e) => setContent(e.target.value)}
         required
       />
+      <Select name="colors" value={color} onChange={handleSelectChange}>
+        <option value="rgb(237, 234, 24)">Yellow</option>
+        <option value="rgb(24, 167, 237)">Blue</option>
+        <option value="rgb(139, 86, 255)">Violet</option>
+        <option value="rgb(24, 237, 67)">Green</option>
+      </Select>
       <Button type="submit" value="Add Article" />
     </form>
   );
