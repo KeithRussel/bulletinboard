@@ -20,6 +20,15 @@ const TextArea = styled.textarea`
   border-radius: 4px;
 `;
 
+const Select = styled.select`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
 const Button = styled.input`
   width: 100%;
   padding: 12px 20px;
@@ -36,6 +45,9 @@ const EditArticleForm = ({
   setTitle,
   content,
   setContent,
+  color,
+  setColor,
+  handleSelectChange,
   titleOnChangeHandler,
   contentOnChangeHandler,
   handleUpdate,
@@ -58,6 +70,15 @@ const EditArticleForm = ({
         onChange={contentOnChangeHandler}
         required
       />
+      <Select name="colors" value={color} onChange={handleSelectChange}>
+        <option value="none" selected disabled hidden>
+          Select a Color
+        </option>
+        <option value="rgb(237, 234, 24)">Yellow</option>
+        <option value="rgb(24, 167, 237)">Blue</option>
+        <option value="rgb(139, 86, 255)">Violet</option>
+        <option value="rgb(24, 237, 67)">Green</option>
+      </Select>
       <Button type="submit" value="Update Article" />
     </form>
   );

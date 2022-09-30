@@ -22,6 +22,7 @@ const EditArticleScreen = () => {
   const found = articleList.find((obj) => obj.id === params.articleId);
   const [title, setTitle] = useState(found.title);
   const [content, setContent] = useState(found.content);
+  const [color, setColor] = useState(found.color);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ const EditArticleScreen = () => {
             ...obj,
             title: title,
             content: content,
+            color: color,
             date: currentDate(),
           };
         }
@@ -59,6 +61,10 @@ const EditArticleScreen = () => {
     setContent(e.target.value);
   };
 
+  const handleSelectChange = (e) => {
+    setColor(e.target.value);
+  };
+
   return (
     <EditArticleScreenMain>
       <Link to="/">Back</Link>
@@ -68,6 +74,7 @@ const EditArticleScreen = () => {
         handleUpdate={handleUpdate}
         titleOnChangeHandler={titleOnChangeHandler}
         contentOnChangeHandler={contentOnChangeHandler}
+        handleSelectChange={handleSelectChange}
       />
     </EditArticleScreenMain>
   );
