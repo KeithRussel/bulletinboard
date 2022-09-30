@@ -71,7 +71,7 @@ const EditArticleForm = ({
         required
       />
       <Select name="colors" value={color} onChange={handleSelectChange}>
-        <option value="none" disabled hidden>
+        <option value="none" selected disabled hidden>
           Select a Color
         </option>
         <option value="rgb(237, 234, 24)">Yellow</option>
