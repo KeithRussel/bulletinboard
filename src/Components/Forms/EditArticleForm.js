@@ -18,6 +18,7 @@ const TextArea = styled.textarea`
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  resize: none;
 `;
 
 const Select = styled.select`
