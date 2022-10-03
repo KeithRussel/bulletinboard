@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddArticleForm from "../Components/Forms/AddArticleForm";
 import { useLocalStorage } from "../Components/LocalStorage/localStorage";
 import uuid from "react-uuid";
@@ -21,22 +21,28 @@ const AddArticleScreen = () => {
   const [color, setColor] = useState("rgb(237, 234, 24)");
 
   const [articleList, setArticleList] = useLocalStorage("articles", []);
+  const navigate = useNavigate();
 
   const handleSelectChange = (e) => {
     setColor(e.target.value);
   };
 
-  const addArticle = (title, content, color) => {
-    setArticleList([
-      ...articleList,
-      {
-        id: uuid().slice(0, 6),
-        title: title,
-        content: content,
-        color: color,
-        date: currentDate(),
-      },
-    ]);
+  const addArticle = async (title, content, color) => {
+    try {
+      await setArticleList([
+        ...articleList,
+        {
+          id: uuid().slice(0, 6),
+          title: title,
+          content: content,
+          color: color,
+          date: currentDate(),
+        },
+      ]);
+      navigate("/");
+    } catch (err) {
+      throw new Error("Error 404 not found");
+    }
   };
 
   const handleSubmit = (e) => {
