@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { theme } from "../../utils/styles";
+import { Link } from "react-router-dom";
 
 const HeaderMain = styled.div`
   display: flex;
@@ -14,7 +15,11 @@ const HeaderMain = styled.div`
 `;
 
 const Header = () => {
-  return <HeaderMain>Bulletin Board</HeaderMain>;
+  return (
+    <>
+      <HeaderMain>Bulletin Board</HeaderMain>
+    </>
+  );
 };
 
 export default Header;
