@@ -10,6 +10,10 @@ const AddArticleRoute = styled.span`
   left: auto;
   right: 25px;
   bottom: 25px;
+  &:hover {
+    transform: rotate(90deg);
+    transition: 1s;
+  }
 `;
 
 const SetTheme = styled.span`
@@ -17,6 +21,10 @@ const SetTheme = styled.span`
   left: auto;
   right: 25px;
   bottom: 100px;
+  &:hover {
+    transform: rotate(90deg);
+    transition: 1s;
+  }
 `;
 
 const HomeScreen = () => {
