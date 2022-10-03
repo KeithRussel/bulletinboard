@@ -7,3 +7,15 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.backgroundBlue {
+  background-color: #a3e3fd;
+}
+
+.backgroundPink {
+  background-color: #fdd1fc;
+}
+
+.backgroundWood {
+  background-color: #eecda3;
+}
