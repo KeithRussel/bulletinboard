@@ -5,6 +5,9 @@ import Header from "./Components/Header/Header";
 import HomeScreen from "./Screens/HomeScreen";
 import AddArticleScreen from "./Screens/AddArticleScreen";
 import EditArticleScreen from "./Screens/EditArticleScreen";
+import ThemeScreen from "./Screens/ThemeScreen";
+import { useLocalStorage } from "./Components/LocalStorage/localStorage";
+import { useEffect } from "react";
 
 const Container = styled.div`
   @media (max-width: 600px) {
@@ -17,6 +20,12 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [colorBackground, setColorBackground] = useLocalStorage("theme", "");
+
+  useEffect(() => {
+    document.body.classList = `${colorBackground}`;
+  }, []);
+
   return (
     <div className="App">
       <Header />
@@ -27,6 +36,10 @@ function App() {
           <Route
             path="editarticle/:articleId"
             element={<EditArticleScreen />}
+          />
+          <Route
+            path="theme"
+            element={<ThemeScreen colorBackground={colorBackground} />}
           />
         </Routes>
       </Container>
